@@ -1,0 +1,17 @@
+参考文献：https://mp.weixin.qq.com/s/6sTA_DLijFgYHLI7O6uvgg
+
+目标检测算法分为两类：
+
+一类是基于Region Proposal的R-CNN系算法（R-CNN，Fast R-CNN，Faster R-CNN），two-stage，需要先产生目标候选框，再对候选框做分类与回归
+
+另一类是one-stage的YOLO、SSD，仅仅使用一个卷积神经网络CNN直接预测不同目标的类别与位置
+
+区别：第一类方法的准确度高一些，但是速度慢，第二类速度快，但是准确性要低一些。
+
+1、R-CNN 滑动窗口思想
+
+输入一张图片，通过指定算法从图片中提取2000个类别独立的候选区域，对每个候选区域利用卷积神经网络来获取一个特征向量，对与每个区域相应的特征向量，利用SVM进行分类，并通过一个bounding box regression调整目标包围框的大小。
+
+提取候选区域：objectness、selective search
+提取特征向量：AlexNet2012 输入是227*227
+
