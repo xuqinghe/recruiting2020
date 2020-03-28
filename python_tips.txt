@@ -1,0 +1,172 @@
+笔试经验：
+美团暑期实习笔试：
+【1】知道input()，raw_input()的用法
+【2】对数发生器，非常重要，用于debug
+【3】思路要开放，那种没有背景的题，肯定就是原题了，如按位或
+【4】
+
+腾讯面试：
+【1】对于简历上面的内容要有扩展的能力
+
+=================================================
+
+【1】列表
+str.remove(元素)
+a=str.pop(索引)
+del str[索引]
+a.count(元素) 这个元素有几个
+
+【2】排序
+绑定排序：
+hw = sorted((h,w) for h,w in zip(height,weight))
+h = [a[0] for a in hw]
+列表按某一属性排序：
+connections.sort(key = lambda x:x[2])
+courses = sorted(courses,key=lambda l:l[1])
+按两个属性排序：
+people.sort(key = lambda x: (-x[0], x[1]))
+
+num.sort()
+
+【3】数组 's 定义
+dp = [[0 for i in range(7)] for i in range(6)]
+
+【4】判断数字或字母,大写转小写
+c.isdigit()
+c.isalpha()
+s.lower()
+s.upper()
+
+【5】字符串反向
+reversed(S)
+
+【6】双端队列deque
+from collections import deque
+window=deque()
+window.append()
+window.pop()
+window.popleft()
+
+【7】向上取整
+a = -(-n/2)
+
+【8】逆序索引
+for i in xrange(N,-1,-1)
+
+【9】集合
+queens=set()
+queens.add((row,col))
+queens.remove(row,col)
+
+【10】商和余数
+target, rem = divmod(sum(nums), k)
+
+【11】队列 和 栈
+queue=[]
+queue.append(加入的元素)
+队列 取出的元素=queue.pop(0)  Leetcode101
+栈    取出的元素=queue.pop()   Leetcode538
+
+【12】次方power
+2 ** h - 1
+
+【13】根据字典的key排序
+res = sorted(res.items(), key = lambda x: x[0]) 其中，res为字典
+return [val[1] for val in res]
+
+【14】collections Queue 
+双端队列deq = collections.deque([[root, 0]])   deq.append() deq.pop() deq.popleft() deq[0]
+字典res = collections.defaultdict(list)
+队列q=Queue.Queue() q.get() q.put() q.qsize() 但是没有q[0]的操作
+
+DFS：LeetCode993函数修改值、965、814
+宽度优先和深度优先：662、199
+中序遍历：98
+
+【15】重复元素之set集合
+len(nums) == len(set(nums))
+
+【16】字符串操作
+s.split('\n')
+
+【17】切片&find（）
+t[t.index(i)+1:]
+loc = t.find(i,loc+1)
+
+【18】得到邻居节点yeild
+def neighbors(r, c):
+    for nr, nc in ((r-1,c),(r,c-1),(r+1,c),(r,c+1)):
+                if 0 <= nr < R and 0 <= nc < C:
+                    yield nr, nc
+
+【19】一行代码
+一行查找 rotten = {(i, j) for i in range(row) for j in range(col) if grid[i][j] == 2} # 腐烂集合
+
+【20】字符串分割+处理
+lst = [int(a) for a in version1.split('.')]
+
+
+【21】随机数
+import random
+random.randon()   产生[0,1)
+random.randint(1,10)
+random.uniform(1.1,5.4)
+random.choice('tomorrow')
+random.randrange(1,100,2)
+
+a=[1,3,5,7]
+random.shuffle(a)
+
+
+【22】set集合
+set去重：list（set（res））
+
+【23】.format
+res.append("{},{}: {:.4f}".format(i,j,temp))
+
+【24】字符串相减
+ord('b')-ord('a') == 1 # True
+chr(97) == 'a' # True
+ord('a') == 97 # True
+
+【25】pythonic
+collections.Counter()
+count = collections.Counter(nums)
+return heapq.nlargest(k,count.keys(),key = count.get)
+
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        ans = 0
+        cnt = collections.Counter(chars)
+        for w in words:
+            c = collections.Counter(w)
+            if all([c[i] <= cnt[i] for i in c]):
+                ans += len(w)
+        return ans
+
+
+【26】heapq
+heap=[]
+heapq.heappush(heap,(-d[x],x))
+
+【27】set discard
+good  = set(words)
+good.discard(word[i:]) 去除元素，如果不存在不报错
+
+
+【28】trie
+words = list(set(words))
+        Trie = lambda:collections.defaultdict(Trie)
+        trie = Trie()
+        nodes = [reduce(dict.__getitem__,word[::-1],trie) for word in words]
+        return sum(len(word)+1 for i,word in enumerate(words) if len(nodes[i])==0 )
+
+【29】any all lambda map
+def search(self, word: str) -> bool:
+        n = len(word)
+        f = lambda s: all(map(lambda i: word[i] in {s[i],'.'},range(n)))
+        return any(map(f,self.d[n]))
+=======================================================
+
+【1】回文：双指针
+【2】课程表：有向无环图（DAG）、入度为0
