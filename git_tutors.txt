@@ -1,0 +1,44 @@
+创建仓库
+git init
+
+添加到临时仓库
+git add python_tips.txt
+
+查看临时仓库
+git status
+
+临时仓库转入正式仓库
+git commit -m '2020 3/28 first submit'
+
+管理员记录
+git log
+
+版本回退
+git reset --hard HEAD^
+
+管理员命令记录
+git reflog
+
+回到提交的ID位置
+git reset --hard 3cc34bb
+
+撤销修改，在放入临时仓库之前
+git checkout -- python_tips.txt
+
+撤销修改，在放入到临时仓库之后
+git reset HEAD python_tips.txt
+
+创建秘钥
+ssh-keygen -t rsa -C "649594690@qq.com"
+
+关联远程仓库
+git remote add origin https://github.com/xuqinghe/recruiting2020.git
+
+关联上远程仓库
+git push -u origin master
+
+克隆其他仓库
+git clone 远程仓库地址
+
+本地仓库同步远程仓库
+git pull --rebase origin master
