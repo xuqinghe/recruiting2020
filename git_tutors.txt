@@ -36,11 +36,11 @@ ssh-keygen -t rsa -C "649594690@qq.com"
 关联远程仓库
 git remote add origin https://github.com/xuqinghe/recruiting2020.git
 
+本地仓库同步远程仓库
+git pull --rebase origin master
+
 关联上远程仓库
 git push -u origin master
 
 克隆其他仓库
 git clone 远程仓库地址
-
-本地仓库同步远程仓库
-git pull --rebase origin master
